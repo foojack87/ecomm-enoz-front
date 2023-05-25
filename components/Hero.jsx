@@ -49,7 +49,7 @@ const Hero = ({ product }) => {
       <Center>
         <ColumnsWrapper>
           <Column>
-            <img src="/oolong.webp" alt="oolong" />
+            <img src="/oolong_cropped.png" alt="oolong" />
           </Column>
           <Column>
             <div>
