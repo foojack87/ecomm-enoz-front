@@ -4,9 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import Center from './Center';
+import { useContext } from 'react';
+import CartContext from './CartContext';
 
 const StyledHeader = styled.header`
-  background-color: #fff9db;
+  background-color: rgba(255, 249, 219, 0.7);
+  position: sticky;
+  top: 0;
+  z-index: 99;
 `;
 
 const Logo = styled(Link)`
@@ -31,6 +36,8 @@ const NavBar = styled.nav`
 `;
 
 const Header = () => {
+  const { cartProducts } = useContext(CartContext);
+
   return (
     <StyledHeader>
       <Center>
@@ -48,7 +55,7 @@ const Header = () => {
             <NavLink href={'/products'}>All Products</NavLink>
             <NavLink href={'/categories'}>Categories</NavLink>
             <NavLink href={'/account'}>Account</NavLink>
-            <NavLink href={'/cart'}>Cart (0)</NavLink>
+            <NavLink href={'/cart'}>Cart ({cartProducts?.length})</NavLink>
           </NavBar>
         </Wrapper>
       </Center>

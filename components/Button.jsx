@@ -8,10 +8,17 @@ export const ButtonStyle = css`
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  font-weight: 500;
   svg {
     height: 1rem;
     margin-right: 0.5rem;
   }
+  ${(props) =>
+    props.block &&
+    css`
+      display: block;
+      width: 100%;
+    `}
   ${(props) =>
     props.yellow &&
     !props.outline &&
@@ -25,15 +32,16 @@ export const ButtonStyle = css`
     props.outline &&
     css`
       background-color: transparent;
-      color: #333;
-      border: 1px solid #aaa;
+      color: #f08c00;
+      border: 1px solid #f08c00;
     `}
 ${(props) =>
     props.black &&
+    props.outline &&
     css`
-      background-color: #333;
-      color: #fff;
-      border: 1px solid #fff;
+      background-color: transparent;
+      color: #333;
+      border: 1px solid #aaa;
     `}
 ${(props) =>
     props.size === 'l' &&
