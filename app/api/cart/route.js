@@ -8,10 +8,7 @@ export async function POST(request) {
   const body = await request.json();
   const { ids } = body;
 
-  console.log(body);
-
   const products = await Product.find({ _id: { $in: ids } }); // Use $in operator to match multiple ids
-  console.log(products);
 
   return NextResponse.json(products);
 }

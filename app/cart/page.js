@@ -6,6 +6,7 @@ import Center from '@/components/Center';
 import Input from '@/components/Input';
 import Table from '@/components/Table';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -59,7 +60,8 @@ const CityHolder = styled.div`
 `;
 
 const Cart = () => {
-  const { cartProducts, addProduct, removeProduct } = useContext(CartContext);
+  const { cartProducts, addProduct, removeProduct, clearCart } =
+    useContext(CartContext);
   const [products, setProducts] = useState([]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -67,6 +69,37 @@ const Cart = () => {
   const [postalCode, setPostalCode] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
   const [country, setCountry] = useState('');
+
+  const router = useRouter();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = {
+      name,
+      email,
+      city,
+      postalCode,
+      streetAddress,
+      country,
+      products: cartProducts.join(','),
+    };
+
+    axios
+      .post('/api/checkout', formData)
+      .then((response) => {
+        const { data } = response;
+        console.log(data);
+        // Handle the response data
+
+        // Redirect to data.url
+        window.location.href = data.url;
+      })
+      .catch((error) => {
+        console.error(error);
+        // Handle any errors
+      });
+  };
 
   useEffect(() => {
     if (cartProducts.length > 0) {
@@ -89,6 +122,13 @@ const Cart = () => {
   for (const productId of cartProducts) {
     const price = products.find((p) => p._id === productId)?.price || 0;
     total += price;
+  }
+
+  if (window.location.href.includes('canceled')) {
+    router.push('/cart');
+  }
+
+  if (window.location.href.includes('success')) {
   }
 
   return (
@@ -147,47 +187,60 @@ const Cart = () => {
         {!!cartProducts?.length && (
           <OrderInfoBox>
             <h2>Order Information</h2>
-            <Input
-              type="text"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <Input
-              type="text"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <CityHolder>
+            <form onSubmit={handleSubmit}>
               <Input
                 type="text"
-                placeholder="City"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
+                placeholder="Name"
+                value={name}
+                name="name"
+                onChange={(e) => setName(e.target.value)}
               />
               <Input
                 type="text"
-                placeholder="Postal Code"
-                value={postalCode}
-                onChange={(e) => setPostalCode(e.target.value)}
+                placeholder="Email"
+                value={email}
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
               />
-            </CityHolder>
-            <Input
-              type="text"
-              placeholder="Street Address"
-              value={streetAddress}
-              onChange={(e) => setStreetAddress(e.target.value)}
-            />
-            <Input
-              type="text"
-              placeholder="Country"
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-            />
-            <Button yellow block>
-              Checkout
-            </Button>
+              <CityHolder>
+                <Input
+                  type="text"
+                  placeholder="City"
+                  value={city}
+                  name="city"
+                  onChange={(e) => setCity(e.target.value)}
+                />
+                <Input
+                  type="text"
+                  placeholder="Postal Code"
+                  value={postalCode}
+                  name="postalCode"
+                  onChange={(e) => setPostalCode(e.target.value)}
+                />
+              </CityHolder>
+              <Input
+                type="text"
+                placeholder="Street Address"
+                value={streetAddress}
+                name="streetAddress"
+                onChange={(e) => setStreetAddress(e.target.value)}
+              />
+              <Input
+                type="text"
+                placeholder="Country"
+                value={country}
+                name="country"
+                onChange={(e) => setCountry(e.target.value)}
+              />
+              <input
+                name="products"
+                type="hidden"
+                value={cartProducts.join(',')}
+              />
+              <Button yellow block type="submit">
+                Checkout
+              </Button>
+            </form>
           </OrderInfoBox>
         )}
       </ColumnsContainer>
