@@ -58,34 +58,3 @@ export async function POST(request) {
 
   return NextResponse.json({ url: session.url });
 }
-
-// const { name, email, city, postalCode, streetAddress, country, products } =
-//   body;
-
-// await mongooseConnect();
-
-// const productIds = products.split(',');
-// console.log(productIds);
-// const uniqueIds = [...new Set(productIds)];
-// console.log(uniqueIds);
-// const productsInfos = await Product.find({ _id: uniqueIds });
-// console.log(productsInfos);
-
-// let line_items = [];
-
-// for (const productId of uniqueIds) {
-//   const info = productsInfos.find((p) => p._id.toString() === productId);
-//   console.log(info);
-//   const quantity = productIds.filter((id) => id === productId)?.length || 0;
-
-//   if (quantity > 0 && info) {
-//     line_items.push({
-//       quantity,
-//       price_data: {
-//         currency: 'USD',
-//         product_data: { name: info.name },
-//         unit_amount: quantity * info.price,
-//       },
-//     });
-//   }
-// }

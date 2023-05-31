@@ -2,14 +2,7 @@
 
 import styled from 'styled-components';
 import Center from './Center';
-import ProductBox from './ProductBox';
-
-const ProductsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.8rem;
-  padding-top: 1.6rem;
-`;
+import ProductsGrid from './ProductsGrid';
 
 const Title = styled.h2`
   font-weight: normal;
@@ -19,16 +12,10 @@ const Title = styled.h2`
 
 const NewProducts = ({ newProducts }) => {
   console.log(newProducts);
-
   return (
     <Center>
       <Title>Signature Collection</Title>
-      <ProductsGrid>
-        {newProducts?.length > 0 &&
-          newProducts.map((product, index) => (
-            <ProductBox key={index} {...product} />
-          ))}
-      </ProductsGrid>
+      <ProductsGrid products={newProducts} />
     </Center>
   );
 };

@@ -58,7 +58,7 @@ const ProductBox = ({ _id, title, description, price, images }) => {
     <ProductWrapper>
       <WhiteBox href={url}>
         <div>
-          <img src={images[0]} alt="product images" />
+          <img src={images?.[0]} alt="product images" />
         </div>
       </WhiteBox>
       <ProductInfoBox>
