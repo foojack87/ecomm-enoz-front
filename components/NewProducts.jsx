@@ -6,7 +6,10 @@ import ProductsGrid from './ProductsGrid';
 
 const Title = styled.h2`
   font-weight: normal;
-  font-size: 2rem;
+  font-size: 1.6rem;
+  @media screen and (min-width: 768px) {
+    font-size: 2rem;
+  }
   margin: 30px 0 20px;
 `;
 

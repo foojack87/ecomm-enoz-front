@@ -2,14 +2,10 @@
 
 import Center from '@/components/Center';
 import Header from '@/components/Header';
-import styled from 'styled-components';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ProductsGrid from '@/components/ProductsGrid';
-
-const Title = styled.h1`
-  font-size: 1.5em;
-`;
+import Title from '@/components/Title';
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);

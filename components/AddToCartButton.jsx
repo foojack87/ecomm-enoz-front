@@ -1,5 +1,7 @@
 'use client';
 import styled, { css } from 'styled-components';
+import CartContext from '@/components/CartContext';
+import { useContext } from 'react';
 
 export const ButtonStyle = css`
   border: none;
@@ -59,8 +61,19 @@ export const StyledButton = styled.button`
   ${ButtonStyle}
 `;
 
-const Button = ({ children, ...rest }) => {
-  return <StyledButton {...rest}>{children}</StyledButton>;
+const AddToCartButton = ({ id, children, ...rest }) => {
+  const { addProduct } = useContext(CartContext);
+
+  return (
+    <StyledButton
+      onClick={() => {
+        addProduct(id);
+      }}
+      {...rest}
+    >
+      {children}
+    </StyledButton>
+  );
 };
 
-export default Button;
+export default AddToCartButton;

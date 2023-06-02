@@ -12,7 +12,9 @@ import styled from 'styled-components';
 
 const ColumnsContainer = styled.div`
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
   gap: 2.6rem;
   margin-top: 2.6rem;
 `;
@@ -20,7 +22,11 @@ const ColumnsContainer = styled.div`
 const Box = styled.div`
   background-color: #fff;
   border-radius: 6px;
-  padding: 1.8rem;
+  padding: 0.6rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  @media screen and (min-width: 768px) {
+    padding: 1.8rem;
+  }
 `;
 
 const OrderInfoBox = styled.div`
@@ -28,6 +34,7 @@ const OrderInfoBox = styled.div`
   border-radius: 6px;
   padding: 1.8rem;
   height: min-content;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
 
 const ProductInfoCell = styled.td`
@@ -37,7 +44,7 @@ const ProductInfoCell = styled.td`
 const ProductImageBox = styled.div`
   width: 100px;
   height: 100px;
-  padding: 8px;
+  padding: 2px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 6px;
@@ -48,10 +55,18 @@ const ProductImageBox = styled.div`
     max-width: 100px;
     max-height: 100px;
   }
+  @media screen and (min-width: 768px) {
+    padding: 8px;
+  }
 `;
 
 const QuantityLabel = styled.span`
-  padding: 0 3px;
+  padding: 0 15px;
+  display: block;
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+    padding: 0 12px;
+  }
 `;
 
 const CityHolder = styled.div`

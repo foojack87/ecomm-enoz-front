@@ -4,8 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import Center from './Center';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import CartContext from './CartContext';
+import BarsIcon from './icons/Bars';
 
 const StyledHeader = styled.header`
   background-color: rgba(255, 249, 219, 0.7);
@@ -16,6 +17,8 @@ const StyledHeader = styled.header`
 
 const Logo = styled(Link)`
   text-decration: none;
+  position: relative;
+  z-index: 99;
 `;
 
 const Wrapper = styled.div`
@@ -26,17 +29,45 @@ const Wrapper = styled.div`
 `;
 
 const NavLink = styled(Link)`
+  ${(props) =>
+    props.mobileNav
+      ? 'margin-bottom: 16px; border: 1px solid black; text-align: center; padding: 6px; width: 100%;'
+      : '  margin-bottom: 0px border: none;'}
+  display: block;
   color: #3f3e28;
   text-decoration: none;
 `;
 
 const NavBar = styled.nav`
-  display: flex;
+  ${(props) => (props.mobileNav ? ' display: block;' : 'display:none;')}
   gap: 2rem;
+  position: fixed;
+  inset: 0 10px;
+  padding: 100px 20px 20px;
+  background-color: rgba(255, 249, 219, 0.7);
+  @media screen and (min-width: 768px) {
+    display: flex;
+    position: static;
+    padding: 0;
+  }
+`;
+
+const NavButton = styled.button`
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 99;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `;
 
 const Header = () => {
   const { cartProducts } = useContext(CartContext);
+  const [mobileNav, setMobileNav] = useState(false);
 
   return (
     <StyledHeader>
@@ -50,13 +81,26 @@ const Header = () => {
               alt="brand logo"
             />
           </Logo>
-          <NavBar>
-            <NavLink href={'/'}>Home</NavLink>
-            <NavLink href={'/products'}>All Products</NavLink>
-            <NavLink href={'/categories'}>Categories</NavLink>
-            <NavLink href={'/account'}>Account</NavLink>
-            <NavLink href={'/cart'}>Cart ({cartProducts?.length})</NavLink>
+          <NavBar mobileNav={mobileNav}>
+            <NavLink mobileNav={mobileNav} href={'/'}>
+              Home
+            </NavLink>
+            <NavLink mobileNav={mobileNav} href={'/products'}>
+              All Products
+            </NavLink>
+            <NavLink mobileNav={mobileNav} href={'/categories'}>
+              Categories
+            </NavLink>
+            <NavLink mobileNav={mobileNav} href={'/account'}>
+              Account
+            </NavLink>
+            <NavLink mobileNav={mobileNav} href={'/cart'}>
+              Cart ({cartProducts?.length})
+            </NavLink>
           </NavBar>
+          <NavButton onClick={() => setMobileNav((prev) => !prev)}>
+            <BarsIcon />
+          </NavButton>
         </Wrapper>
       </Center>
     </StyledHeader>

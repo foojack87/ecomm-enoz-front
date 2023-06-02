@@ -17,7 +17,10 @@ const Background = styled.div`
 const Title = styled.h1`
   margin: 0;
   font-weight: bold;
-  font-size: 3.2rem;
+  font-size: 1.8rem;
+  @media screen and (min-width: 768px) {
+    font-size: 3.2rem;
+  }
 `;
 
 const Desc = styled.p`
@@ -26,10 +29,12 @@ const Desc = styled.p`
 
 const ColumnsWrapper = styled.div`
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
   gap: 6rem;
   img {
     max-width: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 0.9fr 1.1fr;
   }
 `;
 

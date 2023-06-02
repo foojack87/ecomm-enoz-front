@@ -1,8 +1,6 @@
-'use client';
-
 import { CartContextProvider } from '@/components/CartContext';
 import { Roboto } from 'next/font/google';
-import { createGlobalStyle } from 'styled-components';
+import GlobalStyle from '@/components/GlobalStyles';
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
@@ -12,22 +10,15 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: 'Enoz Shop',
-  description: 'Buy healthy, natural, tea based drinks here.',
+  title: 'Enoz | Secret of Concentration',
+  description:
+    'We are a beverage company that has developed tea-based beverages catered to consumers that spend long hours on the their computer and electronic devices.',
 };
-
-const GlobalStyles = createGlobalStyle`
-body{
-  background-color: #eee;
-  padding:0;
-  margin:0;
-}
-`;
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <GlobalStyles />
+      <GlobalStyle />
       <CartContextProvider>
         <body className={roboto.className}>{children}</body>
       </CartContextProvider>

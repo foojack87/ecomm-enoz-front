@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import CartContext from './CartContext';
 
-const ProductWrapper = styled.div``;
+const ProductWrapper = styled.div`
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+`;
 
 const WhiteBox = styled(Link)`
   background-color: #fff;
@@ -25,11 +27,17 @@ const Title = styled(Link)`
   color: inherit;
   text-decoration: none;
   font-size: 1rem;
+
   margin: 0;
 `;
 
 const ProductInfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   background-color: #fff9db;
+  height: 7rem;
   padding: 0.6rem;
   text-align: center;
   border-radius: 0px 0px 6px 6px;
@@ -51,7 +59,7 @@ const Price = styled.span`
 `;
 
 const ProductBox = ({ _id, title, description, price, images }) => {
-  const url = '/product/' + _id;
+  const url = '/products/' + _id;
   const { addProduct } = useContext(CartContext);
 
   return (
