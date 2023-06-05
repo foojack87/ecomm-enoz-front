@@ -1,10 +1,11 @@
 'use client';
 
+import Center from '@/components/Center';
 import Header from '@/components/Header';
 
 import styled from 'styled-components';
 
-const ProductSection = styled.section`
+const ContactSection = styled.section`
   padding-bottom: 2rem;
 `;
 
@@ -16,7 +17,9 @@ export default function Layout({ children }) {
   return (
     <>
       <Header />
-      <ProductSection>{children}</ProductSection>
+      <ContactSection>
+        <Center>{children}</Center>
+      </ContactSection>
     </>
   );
 }

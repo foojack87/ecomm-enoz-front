@@ -39,12 +39,14 @@ const NavLink = styled(Link)`
 `;
 
 const NavBar = styled.nav`
-  ${(props) => (props.mobileNav ? ' display: block;' : 'display:none;')}
+  ${(props) =>
+    props.mobileNav
+      ? ' display: block;   background-color: rgba(255, 249, 219, 0.7);'
+      : 'display:none;'}
   gap: 2rem;
   position: fixed;
   inset: 0 10px;
   padding: 100px 20px 20px;
-  background-color: rgba(255, 249, 219, 0.7);
   @media screen and (min-width: 768px) {
     display: flex;
     position: static;
@@ -91,8 +93,8 @@ const Header = () => {
             <NavLink mobileNav={mobileNav} href={'/about'}>
               About Us
             </NavLink>
-            <NavLink mobileNav={mobileNav} href={'/account'}>
-              Account
+            <NavLink mobileNav={mobileNav} href={'/contact'}>
+              Contact
             </NavLink>
             <NavLink mobileNav={mobileNav} href={'/cart'}>
               Cart ({cartProducts?.length})

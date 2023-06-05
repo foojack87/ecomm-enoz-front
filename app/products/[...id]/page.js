@@ -7,6 +7,7 @@ import { Product } from '@/models/Product';
 import ProductImages from '@/components/ProductImages';
 import CartIcon from '@/components/icons/CartIcon';
 import AddToCartButton from '@/components/AddToCartButton';
+import { Image } from './layout';
 
 const ProductPage = async ({ params }) => {
   const productInfo = await getProduct(params);
@@ -36,6 +37,15 @@ const ProductPage = async ({ params }) => {
             </div>
           </div>
         </ColWrapper>
+
+        <div>
+          <hr></hr>
+          <Image src={productInfo.images[0]} alt="howtodrink" />
+          <Image src="/howto.jpg" alt="howtodrink" />
+          <p>
+            The brewing time can be increased according to personal preference.
+          </p>
+        </div>
       </Center>
     </>
   );
