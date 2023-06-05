@@ -1,6 +1,7 @@
 import { CartContextProvider } from '@/components/CartContext';
 import { Roboto } from 'next/font/google';
 import GlobalStyle from '@/components/GlobalStyles';
+import Footer from '@/components/Footer';
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <GlobalStyle />
       <CartContextProvider>
-        <body className={roboto.className}>{children}</body>
+        <body className={roboto.className}>
+          {children} <Footer />
+        </body>
       </CartContextProvider>
     </html>
   );

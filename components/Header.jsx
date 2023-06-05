@@ -88,8 +88,8 @@ const Header = () => {
             <NavLink mobileNav={mobileNav} href={'/products'}>
               All Products
             </NavLink>
-            <NavLink mobileNav={mobileNav} href={'/categories'}>
-              Categories
+            <NavLink mobileNav={mobileNav} href={'/about'}>
+              About Us
             </NavLink>
             <NavLink mobileNav={mobileNav} href={'/account'}>
               Account
