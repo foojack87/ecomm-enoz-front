@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import styled from 'styled-components';
 import Center from './Center';
 
@@ -64,6 +65,36 @@ const Button = styled.button`
 `;
 
 const SignupCTA = () => {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('/api/newuser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email }),
+      });
+
+      if (response.ok) {
+        // Handle successful form submission
+        console.log('User signup successful!');
+        // Reset the form inputs
+        setFullName('');
+        setEmail('');
+      } else {
+        // Handle form submission error
+        console.error('User signup failed!');
+      }
+    } catch (error) {
+      console.error('Error occurred while submitting form:', error);
+    }
+  };
+
   return (
     <Center>
       <SectionCTA>
@@ -74,10 +105,22 @@ const SignupCTA = () => {
               Get exclusive offers, discounts, and updates directly to your
               inbox.
             </Subheading>
-            <Form>
-              <Input type="text" placeholder="Full Name" required />
-              <Input type="email" placeholder="Email" required />
-              <Button>Sign up now</Button>
+            <Form onSubmit={handleSubmit}>
+              <Input
+                type="text"
+                placeholder="Full Name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                required
+              />
+              <Input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <Button type="submit">Sign up now</Button>
             </Form>
           </CTAContent>
         </Container>

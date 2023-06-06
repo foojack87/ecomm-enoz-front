@@ -81,6 +81,7 @@ const Cart = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [city, setCity] = useState('');
+  const [phone, setPhone] = useState('');
   const [postalCode, setPostalCode] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
   const [country, setCountry] = useState('');
@@ -97,6 +98,7 @@ const Cart = () => {
       postalCode,
       streetAddress,
       country,
+      phone,
       products: cartProducts.join(','),
     };
 
@@ -233,6 +235,13 @@ const Cart = () => {
                   onChange={(e) => setPostalCode(e.target.value)}
                 />
               </CityHolder>
+              <Input
+                type="text"
+                placeholder="Tel# (555) 555-1234"
+                value={phone}
+                name="phone"
+                onChange={(e) => setPhone(e.target.value)}
+              />
               <Input
                 type="text"
                 placeholder="Street Address"

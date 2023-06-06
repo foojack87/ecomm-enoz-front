@@ -30,7 +30,8 @@ const ImageButton = styled.div`
       ? 'border-color: #ccc'
       : 'border-color: transparent; opacity: 0.7;'};
   border-radius: 6px;
-  height: 3rem;
+  height: 2rem;
+  display: flex;
   padding: 0.1rem;
   cursor: pointer;
 `;

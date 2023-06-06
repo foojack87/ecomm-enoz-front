@@ -19,6 +19,10 @@ export const Box = styled.div`
   background-color: #fff;
   border-radius: 6px;
   padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 `;
 
 export const PriceRow = styled.div`

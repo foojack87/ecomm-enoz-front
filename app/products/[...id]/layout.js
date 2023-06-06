@@ -12,6 +12,14 @@ export const Image = styled.img`
   width: 100%;
 `;
 
+export const ProductDetails = styled.div`
+  padding-bottom: 1.5rem;
+`;
+
+export const ProductProperties = styled.div`
+  padding-bottom: 1rem;
+`;
+
 export default function Layout({ children }) {
   return (
     <>
