@@ -8,6 +8,7 @@ const SectionCTA = styled.section`
   background-color: #2a2a2a;
   padding: 80px 0;
   margin-top: 6rem;
+  position: relative;
 `;
 
 const Container = styled.div`
@@ -64,9 +65,25 @@ const Button = styled.button`
   }
 `;
 
+const Notification = styled.div`
+  background-color: green;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const SignupCTA = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
+  const [notification, setNotification] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,7 +94,7 @@ const SignupCTA = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email }),
+        body: JSON.stringify({ name: fullName, email }),
       });
 
       if (response.ok) {
@@ -86,6 +103,9 @@ const SignupCTA = () => {
         // Reset the form inputs
         setFullName('');
         setEmail('');
+        setNotification(
+          'Signup successful! You will receive notifications to your email.'
+        );
       } else {
         // Handle form submission error
         console.error('User signup failed!');
@@ -124,6 +144,7 @@ const SignupCTA = () => {
             </Form>
           </CTAContent>
         </Container>
+        {notification && <Notification>{notification}</Notification>}
       </SectionCTA>
     </Center>
   );
