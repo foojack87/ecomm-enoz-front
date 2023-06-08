@@ -4,6 +4,7 @@ import { Product } from '@/models/Product';
 import { mongooseConnect } from '@/lib/mongoose';
 import NewProducts from '@/components/NewProducts';
 import SignupCTA from '@/components/CTA';
+import Gallery from '@/components/Gallery';
 
 export default async function Home() {
   const product = await getFeatureProduct();
@@ -15,6 +16,7 @@ export default async function Home() {
       <Header />
       <Hero product={featuredProduct} />
       <NewProducts newProducts={newProducts} />
+      <Gallery />
       <SignupCTA />
     </>
   );
