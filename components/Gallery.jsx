@@ -76,7 +76,7 @@ const ImageWrapper = styled.div`
 const Background = styled.img`
   position: absolute;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   object-fit: cover;
   bottom: 0;
   z-index: -1;
@@ -87,7 +87,7 @@ const Background = styled.img`
 const Foreground = styled.img`
   position: absolute;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   object-fit: cover;
   z-index: -1;
   transform: translateZ(-5px) scale(1.5);
