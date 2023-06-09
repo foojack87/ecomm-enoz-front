@@ -6,7 +6,7 @@ import Center from './Center';
 
 const SectionCTA = styled.section`
   background-color: #2a2a2a;
-  padding: 80px 0;
+  padding: 80px 20px;
   margin-top: 6rem;
   position: relative;
 `;
