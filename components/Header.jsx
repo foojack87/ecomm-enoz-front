@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Center from './Center';
 import { useContext, useState } from 'react';
 import CartContext from './CartContext';
-import BarsIcon from './icons/Bars';
+import BarsIcon from './Bars';
 
 const StyledHeader = styled.header`
   // background-color: rgba(255, 249, 219, 0.7);

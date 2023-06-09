@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Center from './Center';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
-import CartIcon from './icons/cartIcon';
+import CartIcon from './CartIcon';
 import { useContext } from 'react';
 import CartContext from './CartContext';
 

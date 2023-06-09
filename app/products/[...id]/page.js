@@ -5,7 +5,7 @@ import { Box } from '../layout';
 import { mongooseConnect } from '@/lib/mongoose';
 import { Product } from '@/models/Product';
 import ProductImages from '@/components/ProductImages';
-import CartIcon from '@/components/icons/CartIcon';
+import CartIcon from '@/components/CartIcon';
 import AddToCartButton from '@/components/AddToCartButton';
 import { Image, ProductDetails, ProductProperties } from './layout';
 
