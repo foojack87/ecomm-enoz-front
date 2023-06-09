@@ -1,5 +1,4 @@
 import Hero from '@/components/Hero';
-import Header from '@/components/Header';
 import { Product } from '@/models/Product';
 import { mongooseConnect } from '@/lib/mongoose';
 import NewProducts from '@/components/NewProducts';

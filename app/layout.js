@@ -2,6 +2,7 @@ import { CartContextProvider } from '@/components/CartContext';
 import { Roboto } from 'next/font/google';
 import GlobalStyle from '@/components/GlobalStyles';
 import Footer from '@/components/Footer';
+import StyledComponentsRegistry from '@/lib/registry';
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
@@ -11,6 +12,9 @@ const roboto = Roboto({
 });
 
 export const metadata = {
+  icons: {
+    icon: '/icon.png',
+  },
   title: 'Enoz | Secret of Concentration',
   description:
     'We are a beverage company that has developed tea-based beverages catered to consumers that spend long hours on the their computer and electronic devices.',
@@ -22,7 +26,9 @@ export default function RootLayout({ children }) {
       <GlobalStyle />
       <CartContextProvider>
         <body className={roboto.className}>
-          {children} <Footer />
+          <StyledComponentsRegistry>
+            {children} <Footer />
+          </StyledComponentsRegistry>
         </body>
       </CartContextProvider>
     </html>

@@ -9,7 +9,6 @@ import CartContext from './CartContext';
 import BarsIcon from './Bars';
 
 const StyledHeader = styled.header`
-  // background-color: rgba(255, 249, 219, 0.7);
   position: sticky;
   top: 0;
   z-index: 99;
@@ -56,6 +55,7 @@ const NavBar = styled.nav`
 
 const NavButton = styled.button`
   background-color: transparent;
+  color: black;
   width: 40px;
   height: 40px;
   border: none;
