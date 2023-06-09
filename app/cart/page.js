@@ -88,6 +88,16 @@ const Cart = () => {
 
   const router = useRouter();
 
+  useEffect(() => {
+    if (window.location.href.includes('canceled')) {
+      router.push('/cart');
+    }
+
+    if (window.location.href.includes('success')) {
+      router.push('/cart/success');
+    }
+  }, [router]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -139,10 +149,6 @@ const Cart = () => {
   for (const productId of cartProducts) {
     const price = products.find((p) => p._id === productId)?.price || 0;
     total += price;
-  }
-
-  if (window.location.href.includes('canceled')) {
-    router.push('/cart');
   }
 
   return (
