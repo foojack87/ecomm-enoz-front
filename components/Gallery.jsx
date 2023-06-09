@@ -41,7 +41,7 @@ const CardText = styled.p`
 
 const GalleryContainer = styled.div`
   position: relative;
-  height: 90vh;
+  height: 100vh;
   margin-top: -4rem;
 `;
 
@@ -57,7 +57,7 @@ const GalleryTitle = styled.div`
 `;
 
 const GalleryWrapper = styled.div`
-  height: 90vh;
+  height: 100vh;
   margin-top: -4rem;
   // overflow-y: auto;
   overflow-x: hidden;
