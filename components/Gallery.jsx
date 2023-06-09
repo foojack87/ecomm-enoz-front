@@ -2,6 +2,9 @@
 
 import styled from 'styled-components';
 import Header from './Header';
+import SignupCTA from './CTA';
+import Hero from './Hero';
+import NewProducts from './NewProducts';
 
 const TextSection = styled.div`
   padding: 2rem;
@@ -37,7 +40,7 @@ const CardText = styled.p`
 
 const GalleryContainer = styled.div`
   position: relative;
-  height: calc(100vh - 4rem);
+  height: 90vh;
   margin-top: -4rem;
 `;
 
@@ -53,8 +56,9 @@ const GalleryTitle = styled.div`
 `;
 
 const GalleryWrapper = styled.div`
-  height: calc(100vh - 4rem);
+  height: 90vh;
   margin-top: -4rem;
+  // overflow-y: auto;
   overflow-x: hidden;
   perspective: 10px;
   ::-webkit-scrollbar {
@@ -97,7 +101,8 @@ const SvgStyle = styled.svg`
   height: 2.4rem;
 `;
 
-const Gallery = () => {
+const Gallery = ({ product, newProducts }) => {
+  console.log(product);
   return (
     <GalleryContainer>
       <Header />
@@ -206,6 +211,9 @@ const Gallery = () => {
             </CardText>
           </Card>
         </TextSection>
+        <Hero product={product} />
+        <NewProducts newProducts={newProducts} />
+        <SignupCTA />
       </GalleryWrapper>
     </GalleryContainer>
   );

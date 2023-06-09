@@ -1,8 +1,5 @@
-import Hero from '@/components/Hero';
 import { Product } from '@/models/Product';
 import { mongooseConnect } from '@/lib/mongoose';
-import NewProducts from '@/components/NewProducts';
-import SignupCTA from '@/components/CTA';
 import Gallery from '@/components/Gallery';
 
 export default async function Home() {
@@ -12,10 +9,7 @@ export default async function Home() {
 
   return (
     <>
-      <Gallery />
-      <Hero product={featuredProduct} />
-      <NewProducts newProducts={newProducts} />
-      <SignupCTA />
+      <Gallery product={featuredProduct} newProducts={newProducts} />
     </>
   );
 }
