@@ -13,10 +13,9 @@ export default async function Home() {
 
   return (
     <>
-      <Header />
+      <Gallery />
       <Hero product={featuredProduct} />
       <NewProducts newProducts={newProducts} />
-      <Gallery />
       <SignupCTA />
     </>
   );

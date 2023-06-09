@@ -13,13 +13,20 @@ const Title = styled.h2`
   margin: 30px 0 20px;
 `;
 
+const NewProductsWrapper = styled.div`
+  background-color: #eee;
+  padding: 2rem 0;
+`;
+
 const NewProducts = ({ newProducts }) => {
   console.log(newProducts);
   return (
-    <Center>
-      <Title>Signature Collection</Title>
-      <ProductsGrid products={newProducts} />
-    </Center>
+    <NewProductsWrapper>
+      <Center>
+        <Title>Signature Collection</Title>
+        <ProductsGrid products={newProducts} />
+      </Center>
+    </NewProductsWrapper>
   );
 };
 

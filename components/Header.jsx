@@ -9,7 +9,7 @@ import CartContext from './CartContext';
 import BarsIcon from './icons/Bars';
 
 const StyledHeader = styled.header`
-  background-color: rgba(255, 249, 219, 0.7);
+  // background-color: rgba(255, 249, 219, 0.7);
   position: sticky;
   top: 0;
   z-index: 99;

@@ -24,10 +24,9 @@ const WhiteBox = styled(Link)`
 
 const Title = styled(Link)`
   font-weight: normal;
-  color: inherit;
+  color: #fff;
   text-decoration: none;
   font-size: 1rem;
-
   margin: 0;
 `;
 
@@ -36,8 +35,8 @@ const ProductInfoBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff9db;
-  height: 7rem;
+  background-color: #333;
+  height: 8rem;
   padding: 0.6rem;
   text-align: center;
   border-radius: 0px 0px 6px 6px;
@@ -54,7 +53,7 @@ const PriceRow = styled.div`
 
 const Price = styled.span`
   font-size: 1.5rem;
-  color: #333;
+  color: #fff;
   font-weight: bold;
 `;
 
