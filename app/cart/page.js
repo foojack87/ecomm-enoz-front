@@ -145,9 +145,6 @@ const Cart = () => {
     router.push('/cart');
   }
 
-  if (window.location.href.includes('success')) {
-  }
-
   return (
     <Center>
       <ColumnsContainer>
