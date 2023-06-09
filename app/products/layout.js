@@ -1,5 +1,6 @@
 'use client';
 
+import Footer from '@/components/Footer';
 import styled from 'styled-components';
 
 const ProductsSection = styled.section`
@@ -39,7 +40,10 @@ export const Price = styled.span`
 export default function Layout({ children }) {
   return (
     <>
-      <ProductsSection>{children}</ProductsSection>
+      <ProductsSection>
+        {children}
+        <Footer />
+      </ProductsSection>
     </>
   );
 }

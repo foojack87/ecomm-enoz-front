@@ -5,6 +5,7 @@ import Header from './Header';
 import SignupCTA from './CTA';
 import Hero from './Hero';
 import NewProducts from './NewProducts';
+import Footer from './Footer';
 
 const TextSection = styled.div`
   padding: 2rem;
@@ -214,6 +215,7 @@ const Gallery = ({ product, newProducts }) => {
         <Hero product={product} />
         <NewProducts newProducts={newProducts} />
         <SignupCTA />
+        <Footer />
       </GalleryWrapper>
     </GalleryContainer>
   );

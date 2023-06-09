@@ -1,6 +1,7 @@
 'use client';
 
 import Center from '@/components/Center';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
 import styled from 'styled-components';
@@ -18,7 +19,10 @@ export default function Layout({ children }) {
     <>
       <Header />
       <ContactSection>
-        <Center>{children}</Center>
+        <Center>
+          {children}
+          <Footer />
+        </Center>
       </ContactSection>
     </>
   );

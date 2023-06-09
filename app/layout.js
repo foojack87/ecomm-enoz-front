@@ -26,9 +26,7 @@ export default function RootLayout({ children }) {
       <GlobalStyle />
       <CartContextProvider>
         <body className={roboto.className}>
-          <StyledComponentsRegistry>
-            {children} <Footer />
-          </StyledComponentsRegistry>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         </body>
       </CartContextProvider>
     </html>
