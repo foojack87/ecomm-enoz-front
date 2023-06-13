@@ -9,11 +9,14 @@ import Footer from './Footer';
 
 const TextSection = styled.div`
   padding: 2rem;
-  // background-color: #fff9db;
+  background-color: #fff9db;
   color: #333;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 2rem;
+  @media screen and (min-width: 768px) {
+    transform: translateZ(-2px) scale(1.2);
+  }
 `;
 
 const Card = styled.div`
@@ -85,7 +88,6 @@ const Background = styled.img`
   bottom: 0;
   z-index: -1;
   transform: translateZ(-10px) scale(2);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 92%, 0% 92%);
 `;
 
 const Foreground = styled.img`
