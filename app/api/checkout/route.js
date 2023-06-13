@@ -44,7 +44,6 @@ export async function POST(request) {
     country,
     paid: false,
   });
-
   const session = await stripeInstance.checkout.sessions.create({
     line_items,
     mode: 'payment',
