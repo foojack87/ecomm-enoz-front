@@ -1,7 +1,6 @@
 import { CartContextProvider } from '@/components/CartContext';
 import { Roboto } from 'next/font/google';
 import GlobalStyle from '@/components/GlobalStyles';
-import Footer from '@/components/Footer';
 import StyledComponentsRegistry from '@/lib/registry';
 
 const roboto = Roboto({

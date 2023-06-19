@@ -55,7 +55,7 @@ const GalleryTitle = styled.div`
   display: flex;
   margin: 0 auto;
   @media screen and (min-width: 768px) {
-    font-size: 7rem;
+    font-size: 3.8rem;
   }
 `;
 
