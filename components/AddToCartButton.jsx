@@ -1,7 +1,19 @@
 'use client';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import CartContext from '@/components/CartContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+
+const pulseAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
 
 export const ButtonStyle = css`
   border: none;
@@ -59,19 +71,34 @@ ${(props) =>
 
 export const StyledButton = styled.button`
   ${ButtonStyle}
+  ${({ isClicked }) =>
+    isClicked &&
+    css`
+      animation: ${pulseAnimation} 0.5s ease-in-out;
+    `};
+  min-width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
 
 const AddToCartButton = ({ id, children, ...rest }) => {
   const { addProduct } = useContext(CartContext);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(true);
+    addProduct(id);
+
+    setTimeout(() => {
+      setIsClicked(false);
+    }, 500);
+  };
 
   return (
-    <StyledButton
-      onClick={() => {
-        addProduct(id);
-      }}
-      {...rest}
-    >
-      {children}
+    <StyledButton onClick={handleClick} isClicked={isClicked} {...rest}>
+      {isClicked ? 'Added!' : children}
     </StyledButton>
   );
 };

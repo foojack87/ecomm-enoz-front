@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Button from './Button';
+import AddToCartButton from './AddToCartButton';
 import Link from 'next/link';
 import { useContext } from 'react';
 import CartContext from './CartContext';
@@ -72,11 +73,9 @@ const ProductBox = ({ _id, title, description, price, images }) => {
         <Title href={url}>{title}</Title>
         <PriceRow>
           <Price>${price}</Price>
-          <Button yellow outline onClick={() => addProduct(_id)}>
-            <div>
-              <span>Add to cart</span>
-            </div>
-          </Button>
+          <AddToCartButton yellow outline id={_id}>
+            Add to cart
+          </AddToCartButton>
         </PriceRow>
       </ProductInfoBox>
     </ProductWrapper>

@@ -2,7 +2,7 @@
 
 import styled from 'styled-components';
 import Center from './Center';
-import Button from './Button';
+import AddToCartButton from './AddToCartButton';
 import ButtonLink from './ButtonLink';
 import CartIcon from './CartIcon';
 import { useContext } from 'react';
@@ -50,12 +50,6 @@ const Column = styled.div`
 `;
 
 const Hero = ({ product }) => {
-  console.log(product);
-  const { addProduct } = useContext(CartContext);
-  const addProductToCart = () => {
-    addProduct(product._id);
-  };
-
   return (
     <Background>
       <Center>
@@ -75,10 +69,10 @@ const Hero = ({ product }) => {
                 >
                   Read more
                 </ButtonLink>
-                <Button yellow onClick={addProductToCart}>
+                <AddToCartButton yellow id={product._id}>
                   <CartIcon />
                   Add to cart
-                </Button>
+                </AddToCartButton>
               </ButtonsContainer>
             </div>
           </Column>

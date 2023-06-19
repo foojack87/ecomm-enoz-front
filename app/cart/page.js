@@ -39,6 +39,7 @@ const OrderInfoBox = styled.div`
 
 const ProductInfoCell = styled.td`
   padding: 8px 0;
+  max-width: 8rem;
 `;
 
 const ProductImageBox = styled.div`
