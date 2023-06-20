@@ -214,7 +214,7 @@ const Cart = () => {
                 <tr>
                   <td></td>
                   <td></td>
-                  <td>${total}</td>
+                  <td>USD ${total}</td>
                 </tr>
               </tbody>
             </Table>

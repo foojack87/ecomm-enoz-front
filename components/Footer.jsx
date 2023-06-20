@@ -3,6 +3,7 @@
 import styled from 'styled-components';
 import Center from './Center';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const SocialIcons = styled.svg`
   color: #f49a2a;
@@ -62,6 +63,11 @@ const FooterBottomLinks = styled.div`
     display: flex;
     gap: 1rem;
   }
+`;
+
+const NoDecorationLink = styled(Link)`
+  text-decoration: none;
+  color: #333;
 `;
 
 const Footer = () => {
@@ -169,9 +175,19 @@ const Footer = () => {
             </p>
           </div>
           <FooterBottomLinks>
-            <p>Terms & Conditions</p>
-            <p>Privacy</p>
-            <p>Shipping & Returns</p>
+            <p>
+              <NoDecorationLink href="/terms">
+                Terms & Conditions
+              </NoDecorationLink>
+            </p>
+            <p>
+              <NoDecorationLink href="/privacy">Privacy</NoDecorationLink>
+            </p>
+            <p>
+              <NoDecorationLink href="/shipping">
+                Shipping & Returns
+              </NoDecorationLink>
+            </p>
           </FooterBottomLinks>
         </FooterBottomContent>
       </FooterContainer>
