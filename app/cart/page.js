@@ -76,7 +76,7 @@ const CityHolder = styled.div`
 `;
 
 const Cart = () => {
-  const { cartProducts, addProduct, removeProduct, clearCart } =
+  const { cartProducts, addProduct, removeProduct, clearCart, removeItem } =
     useContext(CartContext);
   const [products, setProducts] = useState([]);
   const [name, setName] = useState('');
@@ -146,6 +146,10 @@ const Cart = () => {
     removeProduct(id);
   };
 
+  const deleteItem = (id) => {
+    removeItem(id);
+  };
+
   let total = 0;
   for (const productId of cartProducts) {
     const price = products.find((p) => p._id === productId)?.price || 0;
@@ -193,6 +197,17 @@ const Cart = () => {
                       $
                       {cartProducts.filter((id) => id === product._id).length *
                         product.price}
+                    </td>
+                    <td>
+                      <Button
+                        yellow
+                        outline
+                        onClick={() => {
+                          deleteItem(product._id);
+                        }}
+                      >
+                        X
+                      </Button>
                     </td>
                   </tr>
                 ))}

@@ -81,6 +81,14 @@ export const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    background-color: #f08c00;
+    border-color: #f08c00;
+    color: #ffffff;
+  }
 `;
 
 const AddToCartButton = ({ id, children, ...rest }) => {
