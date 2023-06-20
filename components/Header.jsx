@@ -40,9 +40,10 @@ const NavLink = styled(Link)`
 const NavBar = styled.nav`
   ${(props) =>
     props.mobileNav
-      ? ' display: block;   background-color: rgba(255, 249, 219, 0.7);'
+      ? ' display: block; background-color: rgba(255, 249, 219, 0.7);'
       : 'display:none;'}
   gap: 2rem;
+  z-index: 15;
   position: fixed;
   inset: 0 10px;
   padding: 100px 20px 20px;
@@ -67,6 +68,17 @@ const NavButton = styled.button`
   }
 `;
 
+const BlurredBackground = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+`;
+
+const Container = styled.div`
+  position: relative;
+`;
+
 const Header = () => {
   const { cartProducts } = useContext(CartContext);
   const [mobileNav, setMobileNav] = useState(false);
@@ -83,23 +95,26 @@ const Header = () => {
               alt="brand logo"
             />
           </Logo>
-          <NavBar mobileNav={mobileNav}>
-            <NavLink mobileNav={mobileNav} href={'/'}>
-              Home
-            </NavLink>
-            <NavLink mobileNav={mobileNav} href={'/products'}>
-              All Products
-            </NavLink>
-            <NavLink mobileNav={mobileNav} href={'/about'}>
-              About Us
-            </NavLink>
-            <NavLink mobileNav={mobileNav} href={'/contact'}>
-              Contact
-            </NavLink>
-            <NavLink mobileNav={mobileNav} href={'/cart'}>
-              Cart ({cartProducts?.length})
-            </NavLink>
-          </NavBar>
+          <Container>
+            {mobileNav && <BlurredBackground />}
+            <NavBar mobileNav={mobileNav}>
+              <NavLink mobileNav={mobileNav} href={'/'}>
+                Home
+              </NavLink>
+              <NavLink mobileNav={mobileNav} href={'/products'}>
+                All Products
+              </NavLink>
+              <NavLink mobileNav={mobileNav} href={'/about'}>
+                About Us
+              </NavLink>
+              <NavLink mobileNav={mobileNav} href={'/contact'}>
+                Contact
+              </NavLink>
+              <NavLink mobileNav={mobileNav} href={'/cart'}>
+                Cart ({cartProducts?.length})
+              </NavLink>
+            </NavBar>
+          </Container>
           <NavButton onClick={() => setMobileNav((prev) => !prev)}>
             <BarsIcon />
           </NavButton>
