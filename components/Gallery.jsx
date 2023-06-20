@@ -111,8 +111,8 @@ const Gallery = ({ product, newProducts }) => {
       <Header />
       <GalleryWrapper>
         <ImageWrapper>
-          <Background src="/gallery4.webp" alt="tea garden" />
-          <Foreground src="/leaves.png" alt="tea garden" />
+          <Background src="/gallery4.webp" alt="tea garden" loading="lazy" />
+          <Foreground src="/leaves.png" alt="tea garden" loading="lazy" />
           <GalleryTitle>Secret of Concentration</GalleryTitle>
         </ImageWrapper>
         <TextSection>

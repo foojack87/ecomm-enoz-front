@@ -42,7 +42,7 @@ const ProductImages = ({ images }) => {
   return (
     <>
       <BigImageWrapper>
-        <BigImage src={activeImage} />
+        <BigImage src={activeImage} loading="lazy" />
       </BigImageWrapper>
       <ImageButtons>
         {images.map((img, index) => (
@@ -51,7 +51,7 @@ const ProductImages = ({ images }) => {
             active={img === activeImage}
             onClick={() => setActiveImage(img)}
           >
-            <Image src={img} alt="product-imgs" />
+            <Image src={img} alt="product-imgs" loading="lazy" />
           </ImageButton>
         ))}
       </ImageButtons>

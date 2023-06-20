@@ -178,7 +178,11 @@ const Cart = () => {
                   <tr key={index}>
                     <ProductInfoCell>
                       <ProductImageBox>
-                        <img src={product.images[0]} alt="product images" />
+                        <img
+                          src={product.images[0]}
+                          alt="product images"
+                          loading="lazy"
+                        />
                       </ProductImageBox>
                       {product.title}
                     </ProductInfoCell>

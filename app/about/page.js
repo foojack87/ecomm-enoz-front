@@ -9,7 +9,7 @@ const Image = styled.img`
 const About = () => {
   return (
     <>
-      <Image src="/aboutus_img.png" alt="aboutus" />
+      <Image src="/aboutus_img.png" alt="aboutus" loading="lazy" />
 
       <hr></hr>
 
