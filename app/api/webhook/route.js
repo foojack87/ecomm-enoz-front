@@ -13,8 +13,7 @@ export async function POST(request) {
 
   let event;
 
-  const endpointSecret =
-    'whsec_64a2cbafd9d5c988283712462045c5639c504671f03d83ac8c121c8d44346e04';
+  const endpointSecret = process.env.STRIPE_SECRET_KEY;
 
   try {
     event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
@@ -45,6 +44,3 @@ export async function POST(request) {
     status: 200,
   });
 }
-
-// cohere-adored-joy-refine
-// acct_1NDKumEqVj8AtbNw
