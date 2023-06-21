@@ -98,7 +98,7 @@ const Background = styled.img`
   bottom: 0;
   z-index: -1;
   transform: translateZ(-10px) scale(2);
-  animation: ${fadeIn} 1.5s ease-in;
+  animation: ${fadeIn} 0.3s ease-in;
 `;
 
 const Foreground = styled.img`
@@ -108,7 +108,7 @@ const Foreground = styled.img`
   object-fit: cover;
   z-index: -1;
   transform: translateZ(-5px) scale(1.5);
-  animation: ${fadeIn} 0.5s ease-in;
+  animation: ${fadeIn} 1s ease-in;
 `;
 
 const SvgStyle = styled.svg`
