@@ -1,11 +1,20 @@
 'use client';
 
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Header from './Header';
 import SignupCTA from './CTA';
 import Hero from './Hero';
 import NewProducts from './NewProducts';
 import Footer from './Footer';
+
+const fadeIn = keyframes`
+0% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+`;
 
 const TextSection = styled.div`
   padding: 2rem;
@@ -54,6 +63,7 @@ const GalleryTitle = styled.div`
   text-shadow: 0 0 5px black;
   display: flex;
   margin: 0 auto;
+  animation: ${fadeIn} 1.5s ease-in;
   @media screen and (min-width: 768px) {
     font-size: 3.8rem;
   }
@@ -88,6 +98,7 @@ const Background = styled.img`
   bottom: 0;
   z-index: -1;
   transform: translateZ(-10px) scale(2);
+  animation: ${fadeIn} 1.5s ease-in;
 `;
 
 const Foreground = styled.img`
@@ -97,6 +108,7 @@ const Foreground = styled.img`
   object-fit: cover;
   z-index: -1;
   transform: translateZ(-5px) scale(1.5);
+  animation: ${fadeIn} 0.5s ease-in;
 `;
 
 const SvgStyle = styled.svg`

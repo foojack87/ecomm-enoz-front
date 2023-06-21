@@ -22,10 +22,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <GlobalStyle />
       <CartContextProvider>
         <body className={roboto.className}>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <StyledComponentsRegistry>
+            <GlobalStyle />
+            {children}
+          </StyledComponentsRegistry>
         </body>
       </CartContextProvider>
     </html>
