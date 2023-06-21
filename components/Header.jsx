@@ -57,8 +57,8 @@ const NavBar = styled.nav`
 const NavButton = styled.button`
   background-color: transparent;
   color: black;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border: none;
   cursor: pointer;
   position: relative;
